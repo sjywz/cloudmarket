@@ -1,0 +1,16 @@
+{
+    "name": "lzhy/cloudmarket",
+    "description": "国内主流云市场sass自动发货对接",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lzhy",
+            "email": "sjywz@foxmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lzhy\\Cloudmarket\\": "src"
+        }
+    }
+}
