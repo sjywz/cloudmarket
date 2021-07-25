@@ -1,28 +1,28 @@
-<h1 align="center"> cloudmarket </h1>
+# 各大云市场对接
 
-<p align="center"> cloud market link.</p>
-
-
-## Installing
-
-```shell
-$ composer require lzhy/cloudmarket -vvv
+```php
+use Lzhy\Cloudmarket\Support\Bce;
+use Lzhy\Cloudmarket\Support\Hce;
+use Lzhy\Cloudmarket\Support\Jd;
+use Lzhy\Cloudmarket\Support\Ksyun;
+use Lzhy\Cloudmarket\Support\Tce;
 ```
 
-## Usage
+### 百度云
+`new Bce('token')`
+### 腾讯云
+`new Tce('dabashanwanglou')`
+### 京东云
+`new Jd('B2D6479699D2B3D75CF142FB711CDEC3')`
+### 华为云
+`new Hce('a6471e91-2806-444c-ba3f-e0f5da03c516')`
+### 金山云
+`new Ksyun('OvPubFWUAifBKU4A')`
 
-TODO
 
-## Contributing
-
-You can contribute in one of three ways:
-
-1. File bug reports using the [issue tracker](https://github.com/lzhy/cloudmarket/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/lzhy/cloudmarket/issues).
-3. Contribute new features or update the wiki.
-
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
-
-## License
-
-MIT
+```php
+function checkSign(); //效验
+function input($prase = false); //请求参数
+function parseInput($input); //解析加密参数
+function response($data); //返回
+```
