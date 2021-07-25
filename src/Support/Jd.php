@@ -29,18 +29,6 @@ class Jd extends Cloud
         exit(json_decode($data));
     }
 
-    public function action()
-    {
-        $actions = [
-            'createInstance', //新购
-            'renewInstance', //续费
-            'upgradeInstance', //升级
-            'dilateInstance', //扩容
-            'releaseInstance', //释放
-            'verify' //免登
-        ];
-    }
-
     public function checkSign()
     {
         $param = $this->input();

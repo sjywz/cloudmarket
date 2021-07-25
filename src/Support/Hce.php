@@ -55,13 +55,6 @@ class Hce extends Cloud
         exit($resJson);
     }
 
-    public function action()
-    {
-        $actions = [
-            'newInstance',
-        ];
-    }
-
     public function checkSign()
     {
         $param = $this->input();

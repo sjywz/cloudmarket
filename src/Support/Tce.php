@@ -44,12 +44,6 @@ class Tce extends Cloud
         $signature = $param['signature'];
         $timestamp = $param['timestamp'];
         $eventId = $param['eventId'];
-
-        $currentTimestamp = time();
-        if($currentTimestamp - $timestamp > 30){
-            // return false;
-        }
-
         $timestamp = (string)$timestamp;
         $eventId = (string)$eventId;
         $params = array($this->token, $timestamp, $eventId);
