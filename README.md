@@ -17,12 +17,12 @@ function response($data); //返回
 ```
 
 ### 百度云
-`new Bce('token')`
+`new Bce('token/key')`
 ### 腾讯云
-`new Tce('dabashanwanglou')`
+`new Tce('token/key')`
 ### 京东云
-`new Jd('B2D6479699D2B3D75CF142FB711CDEC3')`
+`new Jd('token/key')`
 ### 华为云
-`new Hce('a6471e91-2806-444c-ba3f-e0f5da03c516')`
+`new Hce('token/key')`
 ### 金山云
-`new Ksyun('OvPubFWUAifBKU4A')`
+`new Ksyun('token/key')`
