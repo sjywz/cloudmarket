@@ -2,7 +2,6 @@
 namespace Lzhy\Cloudmarket\Support;
 
 use Lzhy\Cloudmarket\Tool\Aes;
-use Lzhy\Cloudmarket\Tool\Utils;
 
 class Ksyun extends Cloud
 {
@@ -45,12 +44,10 @@ class Ksyun extends Cloud
             $appInfo = $data['appInfo'];
             $username = Aes::encrypt($appInfo['userName'],$this->token);
             $password = Aes::encrypt($appInfo['password'],$this->token);
-            $data['appInfo'] = [
-                'userName' => $username,
-                'password' => $password
-            ];
+            $data['appInfo']['userName'] = $username;
+            $data['appInfo']['password'] = $password;
         }
-        return $data;
+        exit(json_encode($data));
     }
 
     public function checkSign()

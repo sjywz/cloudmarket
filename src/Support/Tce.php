@@ -34,7 +34,7 @@ class Tce extends Cloud
 
     public function response($data)
     {
-        return $data;
+        exit(json_encode($data));
     }
 
     public function checkSign()

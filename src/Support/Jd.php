@@ -26,7 +26,7 @@ class Jd extends Cloud
 
     public function response($data)
     {
-
+        exit(json_decode($data));
     }
 
     public function action()
