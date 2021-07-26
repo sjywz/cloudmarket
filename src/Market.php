@@ -13,6 +13,10 @@ class Market
     protected $cloudmarket;
     protected $supportMarket = ['bce','ksyun','hce','jd','tce'];
 
+    /**
+     * @param string $market 市场标识
+     * @param string $token token/key/秘钥
+     */
     function __construct($market,$token)
     {
         if(empty($market) || empty($token)){
@@ -38,11 +42,17 @@ class Market
                 break;
             case 'tce':
                 $this->cloudmarket = new Tce($token);
+                break;
             default:
                 throw new \Exception('current market is not support');
         }
     }
 
+    /**
+     * 获取输入
+     * @param boolean $parse 是否解析可能的加密数据
+     * @return array
+     */
     public function input($parse = true)
     {
         if(empty($parse)){
@@ -51,11 +61,20 @@ class Market
         return $this->cloudmarket->parseInput($this->cloudmarket->input());
     }
 
+    /**
+     * 包装响应
+     * @param array $data
+     * @return void
+     */
     public function response($data)
     {
         return $this->cloudmarket->response($data);
     }
 
+    /**
+     * 检测签名
+     * @return void
+     */
     public function checkSign()
     {
         return $this->cloudmarket->checkSign();

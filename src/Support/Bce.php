@@ -40,6 +40,12 @@ class Bce extends Cloud
     {
         $param = $this->input();
         $mktDate = $this->getHeaderField('http_x_mkt_request_date');
+        if(empty($mktDate)){
+            return false;
+        }
+        if(empty($param['token'])){
+            return false;
+        }
 
         $verifytoken = $param['token'];
         unset($param['token']);

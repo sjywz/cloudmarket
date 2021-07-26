@@ -53,6 +53,10 @@ class Ksyun extends Cloud
     public function checkSign()
     {
         $param = $this->input();
+        if(empty($param['signature'])){
+            return false;
+        }
+
         $signature = $param['signature'];
         unset($param['signature']);
         ksort($param);

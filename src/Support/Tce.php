@@ -40,6 +40,9 @@ class Tce extends Cloud
     public function checkSign()
     {
         $param = $this->input();
+        if(empty($param['signature']) || empty($param['timestamp']) || empty($param['eventId'])){
+            return false;
+        }
 
         $signature = $param['signature'];
         $timestamp = $param['timestamp'];

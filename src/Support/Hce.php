@@ -32,7 +32,6 @@ class Hce extends Cloud
         if(isset($input['mobilePhone']) && $input['mobilePhone']){
             $input['mobilePhone'] = $this->decrypt($input['mobilePhone'],$this->token);
         }
-        $input['action'] = $input['activity'];
 
         return $input;
     }
@@ -58,6 +57,10 @@ class Hce extends Cloud
     public function checkSign()
     {
         $param = $this->input();
+        if(empty($param['authToken'])){
+            return false;
+        }
+
         $authToken = $param['authToken'];
         unset($param['authToken']);
         ksort($param);

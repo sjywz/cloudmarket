@@ -32,7 +32,11 @@ class Jd extends Cloud
     public function checkSign()
     {
         $param = $this->input();
-        $token = $param['token'] ?? '';
+        if(empty($param['token'])){
+            return false;
+        }
+
+        $token = $param['token'];
         unset($param['token']);
         ksort($param);
         $param['key'] = $this->token;
