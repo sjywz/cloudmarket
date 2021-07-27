@@ -6,6 +6,7 @@ use Lzhy\Cloudmarket\Tool\Unify;
 class Jd extends Cloud
 {
     protected $token;
+    protected $unify = false;
 
     public function __construct(string $token)
     {
@@ -15,18 +16,16 @@ class Jd extends Cloud
     public function input($parse = false)
     {
         $input = array_merge($_GET,$_POST);
-        if($parse){
-            $input = $this->parseInput($input);
+        if($this->unify){
+            $input = Unify::tranform($input);
         }
         return $input;
     }
 
-    public function parseInput($input,$unify = false)
+    public function unify($unify = true)
     {
-        if($unify){
-            $input = Unify::tranform($input);
-        }
-        return $input;
+        $this->unify = $unify;
+        return $this;
     }
 
     public function response($data)

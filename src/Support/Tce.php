@@ -6,6 +6,7 @@ use Lzhy\Cloudmarket\Tool\Unify;
 class Tce extends Cloud
 {
     protected $token;
+    protected $unify = false;
 
     public function __construct(string $token)
     {
@@ -22,19 +23,18 @@ class Tce extends Cloud
         if($input){
             $input = array_merge($_GET,$input);
         }
-        if($parse){
-            $input = $this->parseInput($input);
+
+        if($this->unify){
+            $input = Unify::tranform($input);
         }
 
         return $input;
     }
 
-    public function parseInput($input,$unify = false)
+    public function unify($unify = true)
     {
-        if($unify){
-            $input = Unify::tranform($input);
-        }
-        return $input;
+        $this->unify = $unify;
+        return $this;
     }
 
     public function response($data)

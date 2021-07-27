@@ -9,6 +9,7 @@ class Hce extends Cloud
     use TraitsHce;
 
     protected $token;
+    protected $unify = false;
 
     public function __construct(string $token)
     {
@@ -20,21 +21,27 @@ class Hce extends Cloud
         $input = array_merge($_GET,$_POST);
         $input = self::pddParam($input);
         if($parse){
-            $input = $this->pddParam($input);
+            $input = $this->_parseInput($input);
+        }
+        if($this->unify){
+            $input = Unify::tranform($input);
         }
         return $input;
     }
 
-    public function parseInput($input,$unify = false)
+    public function unify($unify = true)
+    {
+        $this->unify = $unify;
+        return $this;
+    }
+
+    private function _parseInput($input)
     {
         if(isset($input['email']) && $input['email']){
             $input['email'] = $this->decrypt($input['email'],$this->token);
         }
         if(isset($input['mobilePhone']) && $input['mobilePhone']){
             $input['mobilePhone'] = $this->decrypt($input['mobilePhone'],$this->token);
-        }
-        if($unify){
-            $input = Unify::tranform($input);
         }
         return $input;
     }

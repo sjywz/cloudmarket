@@ -53,13 +53,13 @@ class Market
      * @param boolean $unify 统一参数
      * @return array
      */
-    public function input($unify = true)
+    public function input($unify = false)
     {
         $input = $this->cloudmarket->input(true);
         if(empty($unify)){
             return $input;
         }
-        return $this->cloudmarket->parseInput($input,$unify);
+        return $this->cloudmarket->unify()->input($input);
     }
 
     /**
@@ -79,10 +79,5 @@ class Market
     public function checkSign()
     {
         return $this->cloudmarket->checkSign();
-    }
-
-    public function parseInput($input)
-    {
-        return $this->cloudmarket->parseInput($input);
     }
 }

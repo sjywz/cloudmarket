@@ -7,6 +7,7 @@ use Lzhy\Cloudmarket\Tool\Unify;
 class Ksyun extends Cloud
 {
     protected $token;
+    protected $unify = false;
 
     public function __construct(string $token)
     {
@@ -17,13 +18,23 @@ class Ksyun extends Cloud
     {
         $input = array_merge($_GET,$_POST);
         if($parse){
-            $input = $this->parseInput($input);
+            $input = $this->_parseInput($input);
+        }
+
+        if($this->unify){
+            $input = Unify::tranform($input);
         }
 
         return $input;
     }
 
-    public function parseInput($input,$unify = false)
+    public function unify($unify = true)
+    {
+        $this->unify = $unify;
+        return $this;
+    }
+
+    private function _parseInput($input)
     {
         if(isset($input['extendParams']) && $input['extendParams']){
             try{
@@ -35,9 +46,6 @@ class Ksyun extends Cloud
             }catch(\Exception $e){
 
             }
-        }
-        if($unify){
-            $input = Unify::tranform($input);
         }
         return $input;
     }
