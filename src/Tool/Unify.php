@@ -85,7 +85,7 @@ class Unify
         }
         if(isset($input['extendParams'])){
             try{
-                $extendParams = json_decode($input['extendParams'],true);
+                $extendParams = $input['extendParams'];
                 if(isset($extendParams['phone'])){
                     $input['mobile'] = $extendParams['phone'];
                 }

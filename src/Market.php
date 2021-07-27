@@ -50,15 +50,16 @@ class Market
 
     /**
      * 获取输入
-     * @param boolean $parse 是否解析可能的加密数据
+     * @param boolean $unify 统一参数
      * @return array
      */
-    public function input($parse = true)
+    public function input($unify = true)
     {
-        if(empty($parse)){
-            return $this->cloudmarket->input();
+        $input = $this->cloudmarket->input(true);
+        if(empty($unify)){
+            return $input;
         }
-        return $this->cloudmarket->parseInput($this->cloudmarket->input());
+        return $this->cloudmarket->parseInput($input,$unify);
     }
 
     /**

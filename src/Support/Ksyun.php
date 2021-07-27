@@ -23,7 +23,7 @@ class Ksyun extends Cloud
         return $input;
     }
 
-    public function parseInput($input)
+    public function parseInput($input,$unify = false)
     {
         if(isset($input['extendParams']) && $input['extendParams']){
             try{
@@ -31,12 +31,14 @@ class Ksyun extends Cloud
                 foreach($extendArr as $k => $v){
                     $extendArr[$k] = Aes::decrypt($v,$this->token);
                 }
-                $input['extendParams'] = json_encode($extendArr);
+                $input['extendParams'] = $extendArr;
             }catch(\Exception $e){
 
             }
         }
-        $input = Unify::tranform($input);
+        if($unify){
+            $input = Unify::tranform($input);
+        }
         return $input;
     }
 

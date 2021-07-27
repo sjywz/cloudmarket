@@ -25,7 +25,7 @@ class Hce extends Cloud
         return $input;
     }
 
-    public function parseInput($input)
+    public function parseInput($input,$unify = false)
     {
         if(isset($input['email']) && $input['email']){
             $input['email'] = $this->decrypt($input['email'],$this->token);
@@ -33,7 +33,9 @@ class Hce extends Cloud
         if(isset($input['mobilePhone']) && $input['mobilePhone']){
             $input['mobilePhone'] = $this->decrypt($input['mobilePhone'],$this->token);
         }
-        $input = Unify::tranform($input);
+        if($unify){
+            $input = Unify::tranform($input);
+        }
         return $input;
     }
 

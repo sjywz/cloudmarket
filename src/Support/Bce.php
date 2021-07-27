@@ -24,9 +24,11 @@ class Bce extends Cloud
         return $input;
     }
 
-    public function parseInput($input)
+    public function parseInput($input,$unify = false)
     {
-        $input = Unify::tranform($input);
+        if($unify){
+            $input = Unify::tranform($input);
+        }
         return $input;
     }
 
