@@ -1,6 +1,7 @@
 <?php
 namespace Lzhy\Cloudmarket\Support;
 
+use Lzhy\Cloudmarket\Tool\Unify;
 use Lzhy\Cloudmarket\Traits\Bce as TraitsBce;
 
 class Bce extends Cloud
@@ -25,6 +26,7 @@ class Bce extends Cloud
 
     public function parseInput($input)
     {
+        $input = Unify::tranform($input);
         return $input;
     }
 

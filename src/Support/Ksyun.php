@@ -2,6 +2,7 @@
 namespace Lzhy\Cloudmarket\Support;
 
 use Lzhy\Cloudmarket\Tool\Aes;
+use Lzhy\Cloudmarket\Tool\Unify;
 
 class Ksyun extends Cloud
 {
@@ -35,6 +36,7 @@ class Ksyun extends Cloud
 
             }
         }
+        $input = Unify::tranform($input);
         return $input;
     }
 

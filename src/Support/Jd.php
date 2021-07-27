@@ -1,6 +1,8 @@
 <?php
 namespace Lzhy\Cloudmarket\Support;
 
+use Lzhy\Cloudmarket\Tool\Unify;
+
 class Jd extends Cloud
 {
     protected $token;
@@ -21,6 +23,7 @@ class Jd extends Cloud
 
     public function parseInput($input)
     {
+        $input = Unify::tranform($input);
         return $input;
     }
 

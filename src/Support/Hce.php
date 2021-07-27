@@ -1,6 +1,7 @@
 <?php
 namespace Lzhy\Cloudmarket\Support;
 
+use Lzhy\Cloudmarket\Tool\Unify;
 use Lzhy\Cloudmarket\Traits\Hce as TraitsHce;
 
 class Hce extends Cloud
@@ -32,7 +33,7 @@ class Hce extends Cloud
         if(isset($input['mobilePhone']) && $input['mobilePhone']){
             $input['mobilePhone'] = $this->decrypt($input['mobilePhone'],$this->token);
         }
-
+        $input = Unify::tranform($input);
         return $input;
     }
 
