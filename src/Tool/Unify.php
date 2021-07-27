@@ -50,8 +50,8 @@ class Unify
         if(isset($input['packageCode'])){
             $input['skuCode'] = $input['packageCode'];
         }
-        if(isset($input['periodId'])){
-            $input['skuCode'] = $input['periodId'];
+        if(isset($input['packageId'])){
+            $input['skuCode'] = $input['packageId'];
         }
         //过期时间
         if(isset($input['expireTime'])){
