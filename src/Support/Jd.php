@@ -30,7 +30,7 @@ class Jd extends Cloud
 
     public function response($data)
     {
-        exit(json_decode($data));
+        exit(json_encode($data));
     }
 
     public function checkSign()

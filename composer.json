@@ -1,13 +1,22 @@
 {
     "name": "lzhy/cloudmarket",
-    "description": "国内主流云市场sass自动发货对接",
+    "description": "国内各大云市场sass快速接入",
     "license": "MIT",
+    "keywords": [
+        "cloudmarket",
+        "market",
+        "sass"
+    ],
     "authors": [
         {
             "name": "lzhy",
             "email": "sjywz@foxmail.com"
         }
     ],
+    "require": {
+        "php": ">=7.2",
+        "ext-openssl": "*"
+    },
     "autoload": {
         "psr-4": {
             "Lzhy\\Cloudmarket\\": "src"

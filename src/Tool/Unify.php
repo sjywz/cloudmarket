@@ -38,7 +38,7 @@ class Unify
             $input['userId'] = $input['jdPin'];
         }
         if(isset($input['accountId'])){
-            $input['userId'] = $input['jdPin'];
+            $input['userId'] = $input['accountId'];
         }
         if(isset($input['serviceCode'])){
             $input['productId'] = $input['serviceCode'];
@@ -64,6 +64,10 @@ class Unify
         if(isset($input['expiredOn'])){
             $input['expireTime'] = strtotime($input['expiredOn']);
         }
+        if(isset($input['instanceExpireTime'])){
+            $input['expireTime'] = strtotime($input['instanceExpireTime']);
+        }
+
         if(isset($input['productInfo'])){
             if(isset($input['productInfo']['spec'])){
                 $input['skuCode'] = $input['productInfo']['spec'];
