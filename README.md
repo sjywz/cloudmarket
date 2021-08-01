@@ -22,8 +22,8 @@ use Lzhy\Cloudmarket\Market;
 /** $cloud取值：jd/bce/hce/tce/ksyun **/
 $market = new Market($cloud,$keyortoken) //百度
 $market->checkSign(); //效验
-$market->input($parse = false); //参数$unify 是否统一部分参数
-//除了百度，华为、金山之外可自动返回json
+$market->input($unify = false); //参数$unify 是否统一部分参数
+//除了百度，华为、金山之外可自行返回json
 $market->response($data); //包装返回
 ```
 
@@ -39,7 +39,7 @@ use Lzhy\Cloudmarket\Support\Tce;
 $bMarket = new Bce($keyortoken);
 $bMarket->checkSign(); //效验
 $bMarket->unify(false)->input($parse = false); //请求参数 如果是金山云或华为云请传入true解析敏感加密数据
-//除了百度，华为、金山之外可自动返回json
+//除了百度，华为、金山之外可自行返回json
 $bMarket->response($data); //返回
 ```
 
