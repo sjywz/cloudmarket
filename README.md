@@ -43,6 +43,22 @@ $bMarket->unify(false)->input($parse = false); //请求参数 如果是金山云
 $bMarket->response($data); //返回
 ```
 
+### 统一参数
+
+统一参数后参数有：
+
+```
+action //操作
+orderId //订单id
+userId //用户id
+productId //商品id
+skuCode //商品规格
+expireTime //过期时间，时间戳
+instanceId //实例id，操作为新购/创建时没有
+mobile //华为/金山/京东可能有
+email //华为/金山/京东可能有
+```
+
 ### License
 
 MIT
